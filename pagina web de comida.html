@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion Street Food</title>
+
+<style>
+:root{
+  --primary:#0f172a;
+  --accent:#22c55e;
+  --light:#f1f5f9;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(120deg,#0f172a,#1e293b);
+  color:white;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  position:sticky;
+  top:0;
+}
+
+header h1{
+  color:var(--accent);
+}
+
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:var(--accent);
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
+}
+
+.hero h2{
+  font-size:3em;
+}
+
+.hero button{
+  padding:15px 30px;
+  border:none;
+  background:var(--accent);
+  color:black;
+  font-weight:bold;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.hero button:hover{
+  transform:scale(1.1);
+}
+
+.section{
+  padding:60px 40px;
+}
+
+/* SLIDER */
+.slider{
+  position:relative;
+  overflow:hidden;
+  height:400px;
+}
+
+.slides{
+  display:flex;
+  width:300%;
+  animation:slide 100s infinite;
+}
+
+.slides img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+@keyframes slide{
+  0%{transform:translateX(0);}
+  33%{transform:translateX(0);}
+  36%{transform:translateX(-100%);}
+  66%{transform:translateX(-100%);}
+  69%{transform:translateX(-200%);}
+  100%{transform:translateX(-200%);}
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+  width:100%;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.price{
+  color:var(--accent);
+  font-weight:bold;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  border-radius:20px;
+}
+
+.reviews{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+}
+
+.review{
+  min-width:250px;
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:15px;
+}
+
+.contact{
+  text-align:center;
+}
+
+footer{
+  background:black;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
+
+@media(max-width:768px){
+  .about{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Fusion Street</h1>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#menu">Menú</a>
+    <a href="#about">Nosotros</a>
+    <a href="#reviews">Opiniones</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Comida que rompe lo tradicional</h2>
+  <p>Sabores únicos, estilo moderno</p>
+  <button>Ordenar Ahora</button>
+</section>
+
+<!-- SLIDER -->
+<section class="section">
+  <h2>Galería</h2>
+  <div class="slider">
+    <div class="slides">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+      <img src="https://thumbs.dreamstime.com/b/delicioso-wrap-de-kebab-la-parrilla-con-carne-jugosa-y-verduras-frescas-aislado-sobre-fondo-negro-para-men%C3%BA-comida-r%C3%A1pida-431153103.jpg">
+      <img src="https://republicacocinera.com/wp-content/uploads/2022/06/tips-para-menus-en-dark-kitchen.jpg">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <h2>Menú Especial</h2>
+  <div class="menu-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+      <div class="card-content">
+        <h3>Burger Neon</h3>
+        <p>Hamburguesa con salsa secreta</p>
+        <p class="price">$7</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/pizza-with-salami-cheese-dark-surface_1220-5894.jpg">
+      <div class="card-content">
+        <h3>Pizza Dark</h3>
+        <p>Pizza artesanal premium</p>
+        <p class="price">$10</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://us.123rf.com/450wm/makstorm/makstorm2305/makstorm230500248/205328111-juicy-hotdog-with-spices-toppings-ketchup-mayonnaise-and-fresh-salad-colorful-and-appetizing.jpg">
+      <div class="card-content">
+        <h3>Hot Dog Street</h3>
+        <p>Clásico con estilo urbano</p>
+        <p class="price">$4</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://thumbs.dreamstime.com/b/exploding-taco-shredded-cheese-cherry-tomatoes-mid-air-dark-wooden-surface-delicious-mexican-fast-food-visible-ingredients-398713898.jpg">
+      <div class="card-content">
+        <h3>Tacos Fusion</h3>
+        <p>Explosión de sabores</p>
+        <p class="price">$6</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.simplotfood.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F0dkgxhks0leg%2F31a9AQ3HKGRtW4usPHj2SA%2Faff2427f5439be694cf0a6e9f30c1da7%2F2020_20Fall_20Winter_20Trendfeast_20Southern_20Loaded_20Fries.jpg%3Ffm%3Dwebp&w=1080&q=75">
+      <div class="card-content">
+        <h3>Loaded Fries</h3>
+        <p>Papas cargadas especiales</p>
+        <p class="price">$5</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div>
+    <h2>Sobre Nosotros</h2>
+    <p>Fusion Street es un concepto innovador donde mezclamos sabores tradicionales con técnicas modernas. Nuestro objetivo es ofrecer una experiencia diferente, no solo comida.</p>
+    <p>Trabajamos con ingredientes frescos, recetas originales y un estilo urbano que conecta con la nueva generación.</p>
+  </div>
+ 
+</section>
+
+<section class="section" id="reviews">
+  <h2>Opiniones</h2>
+  <div class="reviews">
+    <div class="review">"La mejor comida que he probado" ⭐⭐⭐⭐⭐</div>
+    <div class="review">"Ambiente increíble y comida deliciosa" ⭐⭐⭐⭐⭐</div>
+    <div class="review">"Volvería mil veces" ⭐⭐⭐⭐</div>
+    <div class="review">"Servicio rápido y excelente" ⭐⭐⭐⭐⭐</div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <h2>Contáctanos</h2>
+  <p>📍 Santiago, República Dominicana</p>
+  <p>📞 809-123-4567</p>
+  <p>📧 fusionstreet@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2026 Fusion Street - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
